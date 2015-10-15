@@ -9,7 +9,7 @@
     <script>
         // alert("Popups are working");
         var WORDS     = ["booger", "apple", "hackbright", "mango"];
-        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+        // var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
         var playing = true;
 
@@ -18,8 +18,8 @@
             // Grab a random word from the WORDS array
             var i = Math.floor(Math.random() * WORDS.length);
 
-            // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledWord = SCRAMBLED[i];
+            // Scramble the word
+            var scrambledWord = shuffle(WORDS[i]);
 
             // prompt the user to guess the original word when given the scrambled word
             var guess = prompt("The scrambled word is " + scrambledWord + ". Unscramble the word");
@@ -29,7 +29,7 @@
 
             // Remove spaces from guess
             guess = guess.split(' ').join('');
-            
+
             // If the user guesses wrong, tell them they were wrong and the right word.
             if (guess !== WORDS[i]) {
                 alert("Wrong guess! The word was " + WORDS[i] + ".");
@@ -49,6 +49,31 @@
         }
 
         alert("goodbye!");
+
+
+        // Define a function that takes a string
+        // Split the string into an array
+        // 
+
+
+
+    function shuffle(astring) {
+        // Split input string into array of characters
+        var original = astring.split("");
+        // Get length of array of characters
+        len = original.length;
+
+        // Loop for as long as i is less than the length of the array
+            for(var i = 0; i < len; i++) {
+            var newIndex = Math.floor(Math.random() * (i + 1));
+            var character = original[i];
+            original[i] = original[newIndex];
+            original[newIndex] = character;
+        }
+
+        return original.join("");
+        }
+
     </script>
     
 </body>
